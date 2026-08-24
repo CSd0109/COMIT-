@@ -1,0 +1,24 @@
+name: Auto Commit Bot
+
+on:
+  schedule:
+    - cron: '*/7 * * * *'
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Update File
+        run: |
+          echo "Last updated: $(date)" > update.txt
+          
+      - name: Commit and Push
+        run: |
+          git config --global user.name "Sunil Dhital dev"
+          git config --global user.email "chandrakula341@gmail.com"
+          git add update.txt
+          git commit -m "Automated commit via GitHub Actions"
+          git push
