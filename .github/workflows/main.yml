@@ -1,8 +1,9 @@
 name: Auto Commit Bot
 
 on:
+  workflow_dispatch: # Yesle tapai lai 'Run workflow' button dincha
   schedule:
-    - cron: '*/7 * * * *'
+    - cron: '*/7 * * * *' # Yesle harek 7 minute ma aafai chalauncha
 
 jobs:
   auto_commit:
